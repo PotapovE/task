@@ -2,13 +2,13 @@ using Newtonsoft.Json.Linq;
 public struct JsonParse
 {
     static string json;
-    static List<ModelMsg> msg = new();
     public static void Init (string jsonString)
     {
         json = jsonString;
     }
-    public static void Parse ()
+    public static List<ModelMsg> Parse ()
     {
+        List<ModelMsg> msg = new();
         JObject resultReq = JObject.Parse(json);
         JToken result = resultReq["result"]!;
         ModelMsg mMsg = new();
@@ -18,6 +18,8 @@ public struct JsonParse
             mMsg.MsgText = item["message"]!["text"]?.ToString();
             mMsg.Id = item["message"]!["from"]!["id"]!.ToString();
             mMsg.UpdateId = item["update_id"]!.ToString();
+            msg.Add(mMsg);
         }
+        return msg;
     }
 }
