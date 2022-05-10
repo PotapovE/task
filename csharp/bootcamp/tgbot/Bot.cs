@@ -1,15 +1,10 @@
 public struct Bot
 {
-    static string token;
-    static string baseUri;
+    static string token = string.Empty;
+    static string baseUri = string.Empty;
     static HttpClient hc = new HttpClient();
-    // string url = $"https://api.telegram.org/bot{token}/getUpdates";
-    // string json = hc.GetStringAsync(url).Result;
-    // JsonParse.Init(json);
-
     public static void Start()
-    {
-        
+    {       
         while (true)
         {
             string url = $"{baseUri}getUpdates";
@@ -18,11 +13,9 @@ public struct Bot
             foreach (var item in r)
             {
                 Console.WriteLine(ModelMsg.ToString(item));
-                // SendMessage(item.Id, item.MsgText); // ломается из-зи картинки.
             }
             Thread.Sleep(2000);
-        }
-        
+        }       
     }
     public static void Init(string publicToken)
     {
