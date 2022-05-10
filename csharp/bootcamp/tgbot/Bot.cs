@@ -3,8 +3,8 @@ public struct Bot
     static string token = string.Empty;
     static string baseUri = string.Empty;
     static HttpClient hc = new HttpClient();
-    public static void Start()
-    {       
+    public static void BotThread()
+    {
         while (true)
         {
             string url = $"{baseUri}getUpdates";
@@ -25,6 +25,10 @@ public struct Bot
             }    
             //Data.Save();       
         }       
+    }
+    public static void Start()
+    {       
+        Thread t = new Thread(new ThreadStart(BotThread));
     }
     public static void Init(string publicToken)
     {
