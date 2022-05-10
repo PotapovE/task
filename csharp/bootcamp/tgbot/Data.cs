@@ -17,4 +17,13 @@ public struct Data
     {
         return db;
     }
+    public static string GetString()
+    {
+        string data = string.Empty;
+        foreach (var item in db)
+        {
+            data += $"{item.Key} [{string.Join(' ', item.Value)}]";
+        }
+        return data;
+    }
 }
