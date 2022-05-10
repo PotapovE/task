@@ -12,12 +12,18 @@ public struct Bot
             List<ModelMsg> msgs = JsonParse.Parse();
             foreach (ModelMsg msg in msgs)
             {
+                if(!Data.Read().ContainsKey(msg.Id))
+                {
+                    SendMessage(msg.Id, "Hi");
+                }
+                else
+                {
+                    SendMessage(msg.Id, "How a u?");
+                }
                 Data.Add(msg);
-                Console.WriteLine(Data.GetString());
                 Thread.Sleep(2000);
             }    
-            Data.Save();
-            break;        
+            //Data.Save();       
         }       
     }
     public static void Init(string publicToken)

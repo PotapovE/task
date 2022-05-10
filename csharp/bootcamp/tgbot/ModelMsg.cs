@@ -7,6 +7,6 @@ public struct ModelMsg
 
     public override string ToString()
     {
-        return $"{Id} {FirstName} {MsgText} {UpdateId}";
+        return $"{FirstName} {MsgText}";
     }
 }
