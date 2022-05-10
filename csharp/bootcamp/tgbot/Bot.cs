@@ -9,12 +9,12 @@ public struct Bot
         {
             string url = $"{baseUri}getUpdates";
             JsonParse.Init(hc.GetStringAsync(url).Result);
-            var r = JsonParse.Parse();
-            foreach (var item in r)
+            List<ModelMsg> msgs = JsonParse.Parse();
+            foreach (ModelMsg msg in msgs)
             {
-                Console.WriteLine(ModelMsg.ToString(item));
-            }
-            Thread.Sleep(2000);
+                Data.Add(msg);
+                Thread.Sleep(2000);
+            }            
         }       
     }
     public static void Init(string publicToken)
