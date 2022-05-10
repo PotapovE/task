@@ -5,8 +5,8 @@ public struct ModelMsg
     public string MsgText;
     public string UpdateId;
 
-    public static string ToString (ModelMsg model)
+    public override string ToString()
     {
-        return $"{model.Id} {model.FirstName} {model.MsgText} {model.UpdateId}";
+        return $"{Id} {FirstName} {MsgText} {UpdateId}";
     }
 }

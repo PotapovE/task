@@ -13,8 +13,11 @@ public struct Bot
             foreach (ModelMsg msg in msgs)
             {
                 Data.Add(msg);
+                Console.WriteLine(Data.GetString());
                 Thread.Sleep(2000);
-            }            
+            }    
+            Data.Save();
+            break;        
         }       
     }
     public static void Init(string publicToken)

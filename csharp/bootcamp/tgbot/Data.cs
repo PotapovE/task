@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 public struct Data
 {
     static Dictionary<string, List<ModelMsg>> db = new();
@@ -22,8 +23,16 @@ public struct Data
         string data = string.Empty;
         foreach (var item in db)
         {
-            data += $"{item.Key} [{string.Join(' ', item.Value)}]";
+            data += $"{item.Key} [{string.Join(' ', item.Value)}]\n";
         }
         return data;
+    }
+    public static void Save()
+    {
+        File.WriteAllText("data.json", JsonConvert.SerializeObject(db));
+    }
+    public static void Load()
+    {
+        
     }
 }
