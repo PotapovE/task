@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="Считалка" Height="300" Width="200">
+    <Grid x:Name="MainRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="textOut" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" />
+        <Button Grid.Row="1" Grid.Column="0">1</Button>
+        <Button Grid.Row="1" Grid.Column="1">2</Button>
+        <Button Grid.Row="1" Grid.Column="2">3</Button>
+        <Button Grid.Row="2" Grid.Column="0">4</Button>
+        <Button Grid.Row="2" Grid.Column="1">5</Button>
+        <Button Grid.Row="2" Grid.Column="2">6</Button>
+        <Button Grid.Row="3" Grid.Column="0">7</Button>
+        <Button Grid.Row="3" Grid.Column="1">8</Button>
+        <Button Grid.Row="3" Grid.Column="2">9</Button>
+        <Button Grid.Row="4" Grid.Column="0">0</Button>
+        <Button Grid.Row="4" Grid.Column="1">AC</Button>
+        <Button Grid.Row="4" Grid.Column="2">=</Button>
+        <Button Grid.Row="1" Grid.Column="4">/</Button>
+        <Button Grid.Row="2" Grid.Column="4">*</Button>
+        <Button Grid.Row="3" Grid.Column="4">-</Button>
+        <Button Grid.Row="4" Grid.Column="4">+</Button>
     </Grid>
 </Window>
