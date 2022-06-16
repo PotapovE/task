@@ -6,8 +6,24 @@
         xmlns:local="clr-namespace:MyUI"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="MyUI" Height="600" Width="700">
+    <Grid Background="LightGray">
+        <Border MinWidth="400" Margin="10" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="550" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="5" ShadowDepth="0" Color="Aqua"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Hello myUI" FontSize="35" FontWeight="Bold" Margin="0 0 0 15"/>
+                <Grid>
+                    <Button HorizontalAlignment="Left" Content="Reg" Margin="0 0 0 15"/>
+                    <Button HorizontalAlignment="Right" Content="Log In" Margin="0 0 0 14" Style="{StaticResource MaterialDesignFlatButton}" Cursor="Hand"/>
+                </Grid>
+                <TextBox materialDesign:HintAssist.Hint="Введите имя пользователя" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <PasswordBox materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                <PasswordBox materialDesign:HintAssist.Hint="Повторите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                <TextBox materialDesign:HintAssist.Hint="Введите Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <Button Content="Зарегистрироваться" Margin="0 20"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
