@@ -20,9 +20,12 @@ namespace MyUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        AppContext db;
         public MainWindow()
         {
             InitializeComponent();
+
+            db = new AppContext();
         }
 
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
@@ -64,6 +67,10 @@ namespace MyUI
                 UIEmail.Background = Brushes.Transparent;
 
                 MessageBox.Show("Oks");
+                User user = new User(login, pass, email);
+
+                db.Users.Add(user);
+                db.SaveChanges();
             }
         }
     }
