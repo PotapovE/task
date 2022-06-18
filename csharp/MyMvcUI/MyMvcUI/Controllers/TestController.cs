@@ -5,13 +5,16 @@ namespace MyMvcUI.Controllers
 {
     public class TestController : Controller
     {
-        public string Index()
+        public IActionResult Index()
         {
-            return "This is good";
+            return View();
         }
-        public string Welcome(string name, int ID)
+        public IActionResult Welcome(string name, int count = 1)
         {
-            return HtmlEncoder.Default.Encode($"Hi {name}! ID: {ID}");
+            ViewData["Message"] = "Hi " + name;
+            ViewData["Count"] = count;
+
+            return View();
         }
     }
 }
