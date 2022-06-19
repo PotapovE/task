@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MyMvcUI.Data;
+using MyMvcUI.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MyMvcUIContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyMvcUIContext") ?? throw new InvalidOperationException("Connection string 'MyMvcUIContext' not found.")));
@@ -9,6 +11,13 @@ builder.Services.AddDbContext<MyMvcUIContext>(options =>
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+using ( var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    SeedData.Initialize(services);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
