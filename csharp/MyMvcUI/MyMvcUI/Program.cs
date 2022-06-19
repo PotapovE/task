@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using MyMvcUI.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<MyMvcUIContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MyMvcUIContext") ?? throw new InvalidOperationException("Connection string 'MyMvcUIContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
